@@ -50,7 +50,6 @@ def fizz_buzz(arr):
             new_arr.set(ind, "buzz")
         else:
             new_arr.set(ind, arr[ind])
-
     return new_arr
 
 
