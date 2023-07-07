@@ -37,10 +37,11 @@ def min_max(arr):
 
 def fizz_buzz(arr):
     """
-    TODO: Write this implementation
+    Function takes in a list of integers, determines if an integer is a multiple of 3, 5, or
+    both, and assigns a string accordingly to that index position in a new list.
     """
-    new_arr = StaticArray()
     num_of_elements = StaticArray.length(arr)
+    new_arr = StaticArray(num_of_elements)
     for ind in range(num_of_elements):
         if arr[ind] % 5 == 0 and arr[ind] % 3 == 0:
             new_arr.set(ind, "fizzbuzz")
@@ -57,11 +58,12 @@ def fizz_buzz(arr):
 
 # ------------------- PROBLEM 3 - REVERSE -----------------------------------
 
-def reverse(arr: StaticArray) -> None:
+def reverse(arr):
     """
     TODO: Write this implementation
     """
-    pass
+
+
 
 # ------------------- PROBLEM 4 - ROTATE ------------------------------------
 
