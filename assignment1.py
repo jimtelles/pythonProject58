@@ -39,15 +39,19 @@ def fizz_buzz(arr):
     """
     TODO: Write this implementation
     """
+    new_arr = StaticArray()
     num_of_elements = StaticArray.length(arr)
     for ind in range(num_of_elements):
         if arr[ind] % 5 == 0 and arr[ind] % 3 == 0:
-            StaticArray.set(arr, ind, "fizzbuzz")
+            new_arr.set(ind, "fizzbuzz")
         elif arr[ind] % 3 == 0:
-            StaticArray.set(arr, ind, "fizz")
+            new_arr.set(ind, "fizz")
         elif arr[ind] % 5 == 0:
-            StaticArray.set(arr, ind, "buzz")
-    return arr
+            new_arr.set(ind, "buzz")
+        else:
+            new_arr.set(ind, arr[ind])
+
+    return new_arr, arr
 
 
 
