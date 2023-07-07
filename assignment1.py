@@ -16,13 +16,16 @@ def min_max(arr):
     """
     Function to return the minimum and maximum values from an array of any length.
     """
-    min_num = 0
-    max_num = 0
+    max_num = arr[0]
+    min_num = arr[0]
     num_of_elements = StaticArray.length(arr)
     for ind in range(num_of_elements):
         if num_of_elements == 1:
             max_num = (arr[ind])
             min_num = (arr[ind])
+        # elif arr[ind] == arr[ind + 1]:
+        #     max_num = (arr[ind])
+        #     min_num = (arr[ind])
         elif arr[ind] > max_num:
             max_num = (arr[ind])
         elif arr[ind] < min_num:
