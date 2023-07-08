@@ -69,7 +69,7 @@ def reverse(arr):
             arr[cnt], arr[r] = arr[r], arr[cnt]
             cnt = cnt + 1
             r = r - 1
-
+    return
 
 
 # ------------------- PROBLEM 4 - ROTATE ------------------------------------
