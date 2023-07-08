@@ -69,7 +69,6 @@ def reverse(arr):
             arr[cnt], arr[r] = arr[r], arr[cnt]
             cnt = cnt + 1
             r = r - 1
-    return
 
 
 # ------------------- PROBLEM 4 - ROTATE ------------------------------------
@@ -82,11 +81,39 @@ def rotate(arr: StaticArray, steps: int) -> StaticArray:
 
 # ------------------- PROBLEM 5 - SA_RANGE ----------------------------------
 
-def sa_range(start: int, end: int) -> StaticArray:
+def sa_range(start: int, end: int):
     """
-    TODO: Write this implementation
+    Function takes in two integers and creates an array that goes from the start value to the
+    end value.
     """
-    pass
+    if end == start:
+        arr = StaticArray(1)
+        arr[0] = start
+    elif start == 0:
+        size = abs(end) + 1
+        arr = StaticArray(size)
+        if end < 0:
+            for index in range(size):
+                arr[index] = start
+                start = start - 1
+        else:
+            arr = StaticArray(size)
+            for index in range(size):
+                arr[index] = start
+                start = start + 1
+    else:
+        size = abs(end - start) + 1
+        arr = StaticArray(size)
+        if end < start:
+            for index in range(size):
+                arr[index] = start
+                start = start - 1
+        else:
+            arr = StaticArray(size)
+            for index in range(size):
+                arr[index] = start
+                start = start + 1
+    return arr
 
 # ------------------- PROBLEM 6 - IS_SORTED ---------------------------------
 
