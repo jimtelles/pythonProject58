@@ -124,25 +124,28 @@ def is_sorted(arr: StaticArray) -> int:
     list is not sorted. A list with a single element is assigned a value of 1.
     """
     num_of_elements = arr.length()
-    if arr.length() == 1:
+    # comparison = StaticArray()
+    # comparsion = arr
+    if (num_of_elements) == 1:
         return 1
     elif arr[0] > arr[1]:
-        cnt = 0
-        for ind in range(1, num_of_elements):
-            while arr[ind - 1] > arr[ind] and ind > 0:
-                arr[ind - 1], arr[ind] = arr[ind], arr[ind - 1]
-                cnt = cnt + 1
-            if cnt == 0:
+        for i in range(num_of_elements):
+            x = 1
+            while arr[i] > arr[x] and x < num_of_elements - 1:
+                x = x + 1
+                i = i + 1
+            if x == num_of_elements - 1 and arr[i] > arr[x]:
                 return -1
             else:
                 return 0
     elif arr[0] < arr[1]:
-        for ind in range(1, num_of_elements):
-            cnt = 0
-            while arr[ind - 1] < arr[ind] and ind > 0:
-                arr[ind - 1], arr[ind] = arr[ind], arr[ind - 1]
-                cnt = cnt + 1
-            if cnt == 0:
+
+        for i in range(num_of_elements):
+            x = 1
+            while arr[i] < arr[x] and x < num_of_elements - 1:
+                x = x + 1
+                i = i + 1
+            if x == num_of_elements - 1 and arr[i] < arr[x]:
                 return 1
             else:
                 return 0
