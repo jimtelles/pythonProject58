@@ -149,6 +149,37 @@ def is_sorted(arr: StaticArray) -> int:
                 return 1
             else:
                 return 0
+    elif arr[0] == arr[1]:
+        for i in range(num_of_elements):
+
+            x = 1
+            while arr[x] == arr[i] and x < num_of_elements - 1:
+                x = x + 1
+                i = i + 1
+                if arr[x] > arr[i]:
+                    print(x)
+                    for i in range(num_of_elements - i):
+                        x = x
+                        i = i
+                        while arr[i] > arr[x] and x < num_of_elements - 1:
+                            x = x + 1
+                            i = i + 1
+                        if x == num_of_elements - 1 and arr[i] > arr[x]:
+                            return 1
+                        else:
+                            return 0
+                elif arr[x] < arr[i]:
+                    for i in range(num_of_elements):
+                        x = x
+                        i = i
+                        while arr[i] < arr[x] and x < num_of_elements - 1:
+                            x = x + 1
+                            i = i + 1
+                        if x == num_of_elements - 1 and arr[i] < arr[x]:
+                            return -1
+                        else:
+                            return 0
+
 
 
 # ------------------- PROBLEM 7 - FIND_MODE -----------------------------------
