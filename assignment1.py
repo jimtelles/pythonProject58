@@ -244,7 +244,7 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
                     i = i + 1
                     xa = xa + 1
                     holder1 = arr[x]
-                    if i == num_of_elements:
+                    if i == num_of_elements - 1:
                         xa = xa + 1
                     elif arr[x] != arr[i]:
                         x = x
