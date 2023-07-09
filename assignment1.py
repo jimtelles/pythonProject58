@@ -186,7 +186,8 @@ def is_sorted(arr: StaticArray) -> int:
 
 def find_mode(arr: StaticArray) -> tuple[object, int]:
     """
-    TODO: Write this implementation
+    Function takes an array and determines if there are elements repeated, if so, how many times, and which element
+    was repeated the most.
     """
     num_of_elements = arr.length()
     if num_of_elements == 1:
@@ -198,8 +199,6 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
         xa = 1
         x = 0
         i = 1
-        # holder1 = arr[x]
-        # holder2 = arr[x]
         while arr[x] == arr[i] and i < num_of_elements - 1:
             x = x + 1
             i = i + 1
@@ -236,8 +235,9 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
         while arr[x] != arr[i] and i < num_of_elements - 1:
             x = x + 1
             i = i + 1
-            if i == num_of_elements - 1:
-                return arr[0], xa
+#            print(i)
+            if i == num_of_elements - 1 or num_of_elements == 2:
+                return arr[0], 1
             elif arr[x] == arr[i]:
                 while arr[x] == arr[i] and i < num_of_elements - 1:
                     x = x + 1
