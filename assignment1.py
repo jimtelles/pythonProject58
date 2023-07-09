@@ -235,28 +235,25 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
             x = x + 1
             i = i + 1
             if arr[x] == arr[i]:
-                # for ind in range(i, num_of_elements):
-                #     while i < num_of_elements - 1:
-                #         x = ind
-                #         i = i + 1
-                        while arr[x] == arr[i] and i < num_of_elements - 1:
+                while arr[x] == arr[i] and i < num_of_elements - 1:
+                    x = x + 1
+                    i = i + 1
+                    xa = xa + 1
+                    holder1 = arr[x]
+                    if i == num_of_elements - 1:
+                        xa = xa + 1
+                    elif arr[x] != arr[i]:
+                        x = x
+                        i = i
+                        while arr[x] != arr[i] and i < num_of_elements - 1:
                             x = x + 1
                             i = i + 1
-                            xa = xa + 1
-                            holder1 = arr[x]
-                            if arr[x] != arr[i]:
-                                x = x
-                                i = i
-                                while arr[x] != arr[i] and i < num_of_elements - 1:
+                            if arr[x] == arr[i]:
+                                while arr[x] == arr[i] and i < num_of_elements:
                                     x = x + 1
                                     i = i + 1
-                                    if arr[x] == arr[i]:
-                                        while arr[x] == arr[i] and i < num_of_elements:
-                                            x = x + 1
-                                            i = i + 1
-                                        xb = xb + 1
-                                        holder2 = arr[x]
-                                        print(holder2)
+                                xb = xb + 1
+                                holder2 = arr[x]
         if xa > xb:
             return holder1, xa
         else:
