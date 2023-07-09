@@ -234,7 +234,7 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
         while arr[x] != arr[i] and i < num_of_elements - 1:
             x = x + 1
             i = i + 1
-            if i == num_of_elements - 2:
+            if i == num_of_elements - 1:
                 return arr[0], xa
             elif arr[x] == arr[i]:
                 while arr[x] == arr[i] and i < num_of_elements - 1:
