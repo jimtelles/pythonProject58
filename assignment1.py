@@ -189,7 +189,9 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
     TODO: Write this implementation
     """
     num_of_elements = arr.length()
-    if arr[0] == arr[1]:
+    if num_of_elements == 1:
+        return arr[0], 1
+    elif arr[0] == arr[1]:
         xb = 1
         holder1 = 0
         holder2 = 0
@@ -257,6 +259,7 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
                                 xb = xb + 1
                                 holder2 = arr[x]
         if xa > xb:
+            print(i)
             return holder1, xa
         else:
             return holder2, xb
