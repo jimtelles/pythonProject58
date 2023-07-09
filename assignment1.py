@@ -188,7 +188,78 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
     """
     TODO: Write this implementation
     """
-    pass
+    num_of_elements = arr.length()
+    if arr[0] == arr[1]:
+        xb = 1
+        holder1 = 0
+        holder2 = 0
+        xa = 1
+        x = 0
+        i = 1
+        # holder1 = arr[x]
+        # holder2 = arr[x]
+        while arr[x] == arr[i] and i < num_of_elements - 1:
+            x = x + 1
+            i = i + 1
+            xa = xa + 1
+            holder1 = arr[x]
+            if arr[x] != arr[i]:
+                for ind in range(i, num_of_elements):
+                    while i < num_of_elements - 1:
+                        x = ind
+                        i = i + 1
+                        while arr[x] != arr[i] and i < num_of_elements - 1:
+                            x = x + 1
+                            i = i + 1
+                            if arr[0] == arr[1]:
+                                xb = 1
+                                x = x
+                                i = i
+                                while arr[x] == arr[i] and i < num_of_elements - 1:
+                                    x = x + 1
+                                    i = i + 1
+                                    xb = xb + 1
+                                    holder2 = arr[x]
+        if xa > xb:
+            return holder1, xa
+        else:
+            return holder2, xb
+    elif arr[0] != arr[1]:
+        xb = 1
+        holder1 = 0
+        holder2 = 0
+        xa = 1
+        x = 0
+        i = 1
+        while arr[x] != arr[i] and i < num_of_elements - 1:
+            x = x + 1
+            i = i + 1
+            if arr[x] == arr[i]:
+                for ind in range(i, num_of_elements):
+                    while i < num_of_elements - 1:
+                        x = ind
+                        i = i + 1
+                        while arr[x] == arr[i] and i < num_of_elements - 1:
+                            x = x + 1
+                            i = i + 1
+                            xa = xa + 1
+                            holder1 = arr[x]
+                            if arr[0] != arr[1]:
+                                x = x
+                                i = i
+                                while arr[x] != arr[i] and i < num_of_elements - 1:
+                                    x = x + 1
+                                    i = i + 1
+                                    if arr[x] == arr[i]:
+                                        while arr[x] == arr[i] and i < num_of_elements - 1:
+                                            x = x + 1
+                                            i = i + 1
+                                        xb = xb + 1
+                                        holder2 = arr[x]
+        if xa > xb:
+            return holder1, xa
+        else:
+            return holder2, xb
 
 # ------------------- PROBLEM 8 - REMOVE_DUPLICATES -------------------------
 
