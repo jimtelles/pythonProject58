@@ -189,80 +189,32 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
     Function takes an array and determines if there are elements repeated, if so, how many times, and which element
     was repeated the most.
     """
+    final_mode = 1
+    final_freq = 1
+    final_mode1 = 1
+    final_freq1 = 1
     num_of_elements = arr.length()
     if num_of_elements == 1:
         return arr[0], 1
-    elif arr[0] == arr[1]:
-        xb = 1
-        holder1 = 0
-        holder2 = 0
-        xa = 1
-        x = 0
-        i = 1
-        while arr[x] == arr[i] and i < num_of_elements - 1:
-            x = x + 1
-            i = i + 1
-            xa = xa + 1
-            holder1 = arr[x]
-            if arr[x] != arr[i]:
-                for ind in range(i, num_of_elements):
-                    while i < num_of_elements - 1:
-                        x = ind
-                        i = i + 1
-                        while arr[x] != arr[i] and i < num_of_elements - 1:
-                            x = x + 1
-                            i = i + 1
-                            if arr[0] == arr[1]:
-                                xb = 1
-                                x = x
-                                i = i
-                                while arr[x] == arr[i] and i < num_of_elements - 1:
-                                    x = x + 1
-                                    i = i + 1
-                                    xb = xb + 1
-                                    holder2 = arr[x]
-        if xa > xb:
-            return holder1, xa
-        else:
-            return holder2, xb
-    elif arr[0] != arr[1]:
-        xb = 1
-        holder1 = 0
-        holder2 = 0
-        xa = 1
-        x = 0
-        i = 1
-        while arr[x] != arr[i] and i < num_of_elements - 1:
-            x = x + 1
-            i = i + 1
-#            print(i)
-            if i == num_of_elements - 1 or num_of_elements == 2:
-                return arr[0], 1
-            elif arr[x] == arr[i]:
-                while arr[x] == arr[i] and i < num_of_elements - 1:
-                    x = x + 1
-                    i = i + 1
-                    xa = xa + 1
-                    holder1 = arr[x]
-                    if i == num_of_elements - 1:
-                        xa = xa + 1
-                    elif arr[x] != arr[i]:
-                        x = x
-                        i = i
-                        while arr[x] != arr[i] and i < num_of_elements - 1:
-                            x = x + 1
-                            i = i + 1
-                            if arr[x] == arr[i]:
-                                while arr[x] == arr[i] and i < num_of_elements:
-                                    x = x + 1
-                                    i = i + 1
-                                xb = xb + 1
-                                holder2 = arr[x]
-        if xa > xb:
-            print(i)
-            return holder1, xa
-        else:
-            return holder2, xb
+    else:
+        for i in range(num_of_elements - 1):
+            cnt = 1
+            if arr[i] == arr[i + 1]:
+                cnt = cnt + 1
+                final_freq = cnt + 1
+                final_mode = arr[i]
+            else:
+                cntb = 1
+                if cntb < cnt:
+                    cntb = cnt
+                    final_freq1 = cntb
+                    final_mode1 = arr[i]
+
+    if final_freq >= final_freq1:
+        return final_mode, final_freq
+    else:
+        return final_mode1, final_freq1
+
 
 # ------------------- PROBLEM 8 - REMOVE_DUPLICATES -------------------------
 
