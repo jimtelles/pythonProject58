@@ -189,7 +189,7 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
     Function takes an array and determines if there are elements repeated, if so, how many times, and which element
     was repeated the most.
     """
-    final_mode = 1
+    final_mode = arr[0]
     final_freq = 1
     final_mode1 = 1
     final_freq1 = 1
