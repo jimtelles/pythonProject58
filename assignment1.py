@@ -195,29 +195,32 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
     final_freq1 = 1
     num_of_elements = arr.length()
     cnt = 0
+    cntb = 1
     if num_of_elements == 1:
         return arr[0], 1
     else:
         for i in range(num_of_elements - 1):
             if arr[i] == arr[i + 1]:
-
                 cnt = cnt + 1
                 final_freq = cnt + 1
                 final_mode = arr[i]
-                print(cnt)
+                print(final_mode)
+                print(final_freq)
             else:
-                cntb = 1
-                if cntb < cnt:
+                if cntb <= cnt:
                     cntb = cnt
                     cnt = 0
                     final_freq1 = cntb
                     final_mode1 = arr[i]
-                    final_mode = arr[0]
+                else:
+                    final_freq = 0
 
-    if final_freq >= final_freq1:
+    if final_freq > final_freq1:
         return final_mode, final_freq
-    else:
-        return final_mode1, final_freq1
+    elif final_freq == final_freq1:
+        return final_mode1, final_freq
+    elif final_freq < final_freq1:
+        return arr[0], 1
 
 
 # ------------------- PROBLEM 8 - REMOVE_DUPLICATES -------------------------
