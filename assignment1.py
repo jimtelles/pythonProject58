@@ -210,7 +210,7 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
                 if cntb <= cnt:
                     cntb = cnt
                     cnt = 0
-                    final_freq1 = cntb
+                    final_freq1 = final_freq
                     final_mode1 = arr[i]
                 else:
                     final_freq = 0
