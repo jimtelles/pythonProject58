@@ -284,6 +284,13 @@ def sorted_squares(arr: StaticArray) -> StaticArray:
     new_arr = StaticArray(num_of_elements)
     for index in range(arr.length()):
         new_arr.set(index, (arr[index] * arr[index]))
+    num_of_elements = arr.length()
+    cnt = 0
+    for r in range((num_of_elements) - 1, -1, -1):
+        while cnt < num_of_elements / 2:
+            new_arr[cnt], new_arr[r] = new_arr[r], new_arr[cnt]
+            cnt = cnt + 1
+            r = r - 1
     return new_arr
 
 # ------------------- BASIC TESTING -----------------------------------------
