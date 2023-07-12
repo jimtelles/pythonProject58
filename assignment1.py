@@ -227,9 +227,44 @@ def find_mode(arr: StaticArray) -> tuple[object, int]:
 
 def remove_duplicates(arr: StaticArray) -> StaticArray:
     """
-    TODO: Write this implementation
+    Function takes in an ordered array, removes any duplicate elements, and returns a new array while keeping
+    the orginal array intact.
     """
-    pass
+    num_of_elements = arr.length()
+    new_arr = StaticArray(num_of_elements)
+    counter = 0
+    second_counter = 1
+    if num_of_elements == 1:
+        new_arr[0] = arr[0]
+        return new_arr
+    elif num_of_elements == 2:
+        if arr[0] != arr[1]:
+            new_arr = arr
+            return new_arr
+        else:
+            transfer_arr = StaticArray(1)
+            transfer_arr.set(0, arr[0])
+        return transfer_arr
+    else:
+        for i in range(num_of_elements - 1):
+            if arr[i] != arr[i + 1]:
+                if counter + 2 == num_of_elements -1:
+                    new_arr.set(1, arr[2])
+                    second_counter = 2
+                else:
+                    new_arr[counter] = arr[i]
+                    counter = counter + 1
+            elif arr[i] == arr[i + 1] and counter + second_counter == num_of_elements:
+                second_counter = counter + 1
+                new_arr[counter + 1] = arr[i]
+            elif arr[i] == arr[i + 1]:
+                new_arr[counter] = arr[i]
+                second_counter = counter + 1
+        transfer_arr = StaticArray(second_counter)
+        for j in range(second_counter):
+            transfer_arr.set(j, new_arr[j])
+        return transfer_arr
+
 
 # ------------------- PROBLEM 9 - COUNT_SORT --------------------------------
 
@@ -245,7 +280,11 @@ def sorted_squares(arr: StaticArray) -> StaticArray:
     """
     TODO: Write this implementation
     """
-    pass
+    num_of_elements = arr.length()
+    new_arr = StaticArray(num_of_elements)
+    for index in range(arr.length()):
+        new_arr.set(index, (arr[index] * arr[index]))
+    return new_arr
 
 # ------------------- BASIC TESTING -----------------------------------------
 
